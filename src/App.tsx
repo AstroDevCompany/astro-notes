@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import NoteList from './components/NoteList';
 import { invoke } from '@tauri-apps/api/core';
-import { marked } from 'marked';
+import { useEditor, EditorContent } from '@tiptap/react';
+import StarterKit from '@tiptap/starter-kit';
 import './App.css';
 
 interface Note { id: string; title: string; body: string; }
@@ -43,8 +44,25 @@ function App() {
 
   const selected = notes.find(n => n.id === selectedId) || null;
 
+  const editor = useEditor({
+    extensions: [StarterKit],
+    content: '',
+    onUpdate: ({ editor }) => {
+      if (selected) {
+        const updated: Note = { ...selected, body: editor.getHTML() };
+        updateNote(updated);
+      }
+    },
+  });
+
+  useEffect(() => {
+    if (editor && selected && editor.getHTML() !== selected.body) {
+      editor.commands.setContent(selected.body);
+    }
+  }, [selected?.id]);
+
   return (
-    <div style={{ display: 'flex', height: '100vh' }}>
+    <div style={{ display: 'flex', height: '100vh' }} tabIndex={0}>
       <NoteList
         notes={notes}
         selectedId={selectedId}
@@ -53,7 +71,7 @@ function App() {
         onDelete={deleteNote}
       />
       {selected && (
-        <div style={{ display: 'flex', flex: 1 }}>
+        <div style={{ display: 'flex', flex: 1, height: '100%' }}>
           <div style={{ flex: 1, padding: '1rem', borderRight: '1px solid #ddd' }}>
             <input
               style={{ width: '100%', fontSize: '1.2rem', marginBottom: '0.5rem', padding: '0.5rem' }}
@@ -64,26 +82,36 @@ function App() {
                 updateNote(updated);
               }}
             />
-            <textarea
-              style={{ width: '100%', height: 'calc(100% - 3rem)', padding: '0.5rem', fontFamily: 'monospace' }}
-              value={selected.body}
-              placeholder="Write your markdown note here..."
-              onChange={(e) => {
-                const updated = { ...selected, body: e.target.value };
-                updateNote(updated);
-              }}
-            />
+            {editor && (
+              <div
+                style={{ height: 'calc(100vh - 5rem)', display: 'flex', flexDirection: 'column' }}
+                onKeyDown={(e) => {
+                  if (e.key === 'Tab') {
+                    e.preventDefault();
+                    const { state, dispatch } = editor.view;
+                    const { $from } = state.selection;
+                    const lineStart = $from.start($from.depth);
+                    dispatch(
+                      state.tr.insertText('\t', lineStart)
+                    );
+                  }
+                }}
+              >
+                <EditorContent
+                  editor={editor}
+                  style={{
+                    flex: 1,
+                    width: '100%',
+                    padding: '1rem',
+                    overflowY: 'auto',
+                    fontFamily: 'sans-serif',
+                    borderRadius: '6px',
+                    background: 'white',
+                  }}
+                />
+              </div>
+            )}
           </div>
-          <div
-            style={{
-              flex: 1,
-              padding: '1rem',
-              overflowY: 'auto',
-              backgroundColor: '#fafafa',
-              fontFamily: 'sans-serif',
-            }}
-            dangerouslySetInnerHTML={{ __html: marked.parse(selected.body || '') }}
-          />
         </div>
       )}
     </div>
