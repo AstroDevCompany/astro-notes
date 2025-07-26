@@ -32,8 +32,6 @@ An extremely simple temporary desktop note-taking app.
 
 </aside>
 
-# Features
-
 - Open, read, save files
 - markdown format support
 - Line display
@@ -50,16 +48,5 @@ An extremely simple temporary desktop note-taking app.
 
 </aside>
 
-# Roadmap
-
 1. Setup project
 2.
-
----
-
-<aside>
-<img src="https://www.notion.so/icons/robot_green.svg" alt="https://www.notion.so/icons/robot_green.svg" width="40px" />
-
-LLM Chat
-
-</aside>
