@@ -72,9 +72,9 @@ function App() {
       />
       {selected && (
         <div style={{ display: 'flex', flex: 1, height: '100%' }}>
-          <div style={{ flex: 1, padding: '1rem', borderRight: '1px solid #ddd' }}>
+          <div style={{ flex: 1, padding: '1rem', borderRight: '1px solid gray' }}>
             <input
-              style={{ width: '100%', fontSize: '1.2rem', marginBottom: '0.5rem', padding: '0.5rem' }}
+              style={{ color: 'white', width: '100%', fontSize: '1.2rem', marginBottom: '0.5rem', padding: '0.5rem' }}
               value={selected.title}
               placeholder="Title"
               onChange={(e) => {
@@ -102,11 +102,11 @@ function App() {
                   style={{
                     flex: 1,
                     width: '100%',
-                    padding: '1rem',
+                    padding: '10px',
                     overflowY: 'auto',
                     fontFamily: 'sans-serif',
                     borderRadius: '6px',
-                    background: 'white',
+                    background: '#212529',
                   }}
                 />
               </div>

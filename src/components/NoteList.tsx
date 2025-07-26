@@ -10,7 +10,7 @@ interface Props {
 
 export default function NoteList({ notes, selectedId, onSelect, onCreate, onDelete }: Props) {
   return (
-    <div style={{ width: '200px', borderRight: '1px solid #ddd', padding: '1rem' }}>
+    <div style={{ width: '200px', borderRight: '1px solid gray', padding: '1rem' }}>
       <button onClick={onCreate}>New Note</button>
       <ul style={{ listStyle: 'none', padding: 0 }}>
         {notes.map(n => (
