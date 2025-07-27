@@ -7,7 +7,7 @@
 
 </aside>
 
-An extremely simple temporary desktop note-taking app.
+An extremely simple temporary-focused desktop note-taking app.
 
 ---
 
