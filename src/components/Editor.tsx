@@ -35,6 +35,7 @@ export default function Editor({ note, onChange }: Props) {
         value={body}
         onChange={e => setBody(e.target.value)}
         onBlur={save}
+        placeholder='Write your note here...'
       />
     </div>
   );

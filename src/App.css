@@ -33,7 +33,7 @@ textarea {
   background-color: #212529;
 }
 
-button {
+#newbtn {
   background-color: #007aff;
   color: white;
   border: none;
@@ -42,11 +42,27 @@ button {
   cursor: pointer;
   font-size: 0.9rem;
   transition: background-color 0.2s ease;
-  width: 80%;
+  width: 100%;
 }
 
-button:hover {
+#newbtn:hover {
   background-color: #005fcc;
+}
+
+#delbtn {
+  background-color: #920000;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+  width: 40%;
+}
+
+#delbtn:hover {
+  background-color: #e50000;
 }
 
 ul {

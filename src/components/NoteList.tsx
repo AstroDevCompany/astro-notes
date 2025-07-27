@@ -10,24 +10,34 @@ interface Props {
 
 export default function NoteList({ notes, selectedId, onSelect, onCreate, onDelete }: Props) {
   return (
-    <div style={{ width: '200px', borderRight: '1px solid gray', padding: '1rem' }}>
-      <button onClick={onCreate}>New Note</button>
-      <ul style={{ listStyle: 'none', padding: 0 }}>
+    <div style={{ width: '20vw', minWidth: '200px', borderRight: '1px solid gray', padding: '1rem', height: '100vh' }}>
+      <button id='newbtn' onClick={onCreate}>New Note</button>
+      <ul style={{ listStyle: 'none', padding: 0, backgroundColor: '#1c2023ff', }}>
         {notes.map(n => (
-          <li key={n.id} style={{ margin: '0.5rem 0' }}>
+          <li key={n.id} style={{
+            margin: '0.5rem 0', padding: '6px', border: '1px solid gray', borderRadius: '6px',
+            cursor: 'pointer',
+          }}
+            onClick={() => onSelect(n.id)}>
             <div
               style={{
                 fontWeight: n.id === selectedId ? 'bold' : 'normal',
-                cursor: 'pointer'
-              }}
-              onClick={() => onSelect(n.id)}
-            >
+                maxWidth: '100%',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+              }}>
               {n.title || 'Untitled'}
             </div>
-            <button onClick={() => onDelete(n.id)}>🗑</button>
+            <button id='delbtn' onClick={() => onDelete(n.id)}>Delete</button>
           </li>
         ))}
       </ul>
-    </div>
+      <div id='copyrightText' style={{
+        position: 'absolute', bottom: '1vh', left: '1vw', justifyContent: 'left', width: '100%', marginTop: '10px',
+        color: 'gray', fontSize: '0.8rem'
+      }}>
+        Montanari Luca - v0.1
+      </div>
+    </div >
   );
 }

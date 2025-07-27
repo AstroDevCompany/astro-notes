@@ -109,6 +109,12 @@ function App() {
                     background: '#212529',
                   }}
                 />
+
+                <div id='statusBar' style={{ display: 'flex', justifyContent: 'right', width: '100%', marginTop: '10px' }}>
+                  <div id='wordCount'>
+                    Words: {editor ? editor.getText().trim().split(/\s+/).filter(Boolean).length : 0}
+                  </div>
+                </div>
               </div>
             )}
           </div>
