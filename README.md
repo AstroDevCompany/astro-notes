@@ -60,12 +60,10 @@ An extremely simple temporary desktop note-taking app.
 
 ---
 
-<aside>
-<img src="https://www.notion.so/icons/map-pin_green.svg" alt="https://www.notion.so/icons/map-pin_green.svg" width="40px" />
+### MacOS Beta is out! v0.1
 
-## Roadmap
+# Collaborate
 
-</aside>
-
-1. Setup project
-2.
+- Clone the repo
+- Run "npm i"
+- Push any changes.
