@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface Props {
   notes: { id: string; title: string }[];
   selectedId: string | null;

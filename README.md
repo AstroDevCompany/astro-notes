@@ -32,12 +32,31 @@ An extremely simple temporary desktop note-taking app.
 
 </aside>
 
-- Open, read, save files
+- Write temporary notes (saved in cache)
+- Delete notes
+- Title notes
 - markdown format support
 - Line display
 - Word count
 - Replace, find, go-to line
 - Syntax highlighting support
+
+---
+
+<aside>
+<img src="https://www.notion.so/icons/gears_green.svg" alt="https://www.notion.so/icons/gears_green.svg" width="40px" />
+
+## Coming Features & Fixes
+
+</aside>
+
+- Line display
+- Replace, find, go-to line
+- Syntax highlighting support
+- Icon dimentions fix
+- About display fix
+- Menu bar macos fix
+- Metadata fix
 
 ---
 
