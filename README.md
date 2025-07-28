@@ -67,3 +67,5 @@ An extremely simple temporary-focused desktop note-taking app.
 - Clone the repo
 - Run "npm i"
 - Push any changes.
+
+Contact me on [WA](wa.me/393311384552) for info or collaborate on notion.
